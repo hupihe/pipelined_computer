@@ -1,0 +1,16 @@
+module pipemem (we,addr,datain,clk,ram_clk,dataout,clrn,in_port0,in_port1,in_port2,out_port0,out_port1,out_port2);
+	input [31:0] addr,datain,in_port0,in_port1,in_port2;
+	input        clk,clrn,we,ram_clk;
+	output [31:0] dataout,out_port0,out_port1,out_port2;
+	
+	wire [31:0] mem_dataout, io_read_data;
+	wire write_enable = we; // write_enable = we; ???
+	wire write_datamem_enable = write_enable & ( ~ addr[7]);
+	wire write_io_output_reg_enable = write_enable & ( addr[7]);
+	
+	mux2x32 mem_io_dataout_mux(mem_dataout,io_read_data,addr[7],dataout);
+	lpm_ram_dq_dram dram(addr[6:2],ram_clk,datain,write_datamem_enable,mem_dataout );
+	io_output_reg io_output_regx2 (addr,datain,write_io_output_reg_enable, ram_clk,clrn,out_port0,out_port1,out_port2);
+	io_input_reg io_input_regx2(addr,ram_clk,io_read_data,in_port0,in_port1,in_port2);
+
+endmodule

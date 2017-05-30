@@ -1,0 +1,1584 @@
+Analysis & Synthesis report for pipelined_computer
+Tue May 23 21:42:01 2017
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis RAM Summary
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component|altsyncram_pu81:auto_generated
+ 14. Source assignments for pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component|altsyncram_i0e1:auto_generated
+ 15. Parameter Settings for User Entity Instance: vga_display:vga_d|vga:screen
+ 16. Parameter Settings for User Entity Instance: vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component
+ 17. Parameter Settings for User Entity Instance: pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component
+ 19. Parameter Settings for Inferred Entity Instance: pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0
+ 20. Parameter Settings for Inferred Entity Instance: pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0
+ 21. altpll Parameter Settings by Entity Instance
+ 22. altsyncram Parameter Settings by Entity Instance
+ 23. lpm_mult Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "pipemem:mem_stage"
+ 25. Port Connectivity Checks: "pipeexe:exe_stage|alu:al_unit"
+ 26. Port Connectivity Checks: "pipeexe:exe_stage|mux2x32:alu_ina"
+ 27. Port Connectivity Checks: "pipeexe:exe_stage|cla32:ret_addr"
+ 28. Port Connectivity Checks: "pipeid:id_stage|cla32:br_addr"
+ 29. Port Connectivity Checks: "pipeif:if_stage|cla32:pc_plus4"
+ 30. Port Connectivity Checks: "vga_display:vga_d|vga:screen|RAM_set:ram8"
+ 31. Port Connectivity Checks: "vga_display:vga_d|vga:screen|RAM_set:ram7"
+ 32. Port Connectivity Checks: "vga_display:vga_d|vga:screen"
+ 33. Port Connectivity Checks: "vga_display:vga_d|BCD:bcd2"
+ 34. Port Connectivity Checks: "vga_display:vga_d|BCD:bcd1"
+ 35. Port Connectivity Checks: "digit:seven_dig|BCD:bcd1"
+ 36. Port Connectivity Checks: "digit:seven_dig|BCD:bcd0"
+ 37. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 23 21:42:01 2017    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; pipelined_computer                       ;
+; Top-level Entity Name              ; pipelined_computer                       ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 4,538                                    ;
+;     Total combinational functions  ; 3,350                                    ;
+;     Dedicated logic registers      ; 1,654                                    ;
+; Total registers                    ; 1654                                     ;
+; Total pins                         ; 111                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 3,072                                    ;
+; Embedded Multiplier 9-bit elements ; 6                                        ;
+; Total PLLs                         ; 1                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                          ; pipelined_computer ; pipelined_computer ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+; source/RAM_set.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/RAM_set.v            ;
+; source/alu.v                     ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/alu.v                ;
+; source/BCD.v                     ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/BCD.v                ;
+; source/cla32.v                   ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/cla32.v              ;
+; source/diffe32.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/diffe32.v            ;
+; source/digit.v                   ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/digit.v              ;
+; source/io_input_mux.v            ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/io_input_mux.v       ;
+; source/io_input_reg.v            ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/io_input_reg.v       ;
+; source/io_output_reg.v           ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/io_output_reg.v      ;
+; source/lpm_ram_dq_dram.v         ; yes             ; User Wizard-Generated File   ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/lpm_ram_dq_dram.v    ;
+; source/lpm_rom_irom.v            ; yes             ; User Wizard-Generated File   ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/lpm_rom_irom.v       ;
+; source/mux2x5.v                  ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/mux2x5.v             ;
+; source/mux2x32.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/mux2x32.v            ;
+; source/mux4x32.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/mux4x32.v            ;
+; source/pipedereg.v               ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipedereg.v          ;
+; source/pipeemreg.v               ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeemreg.v          ;
+; source/pipeexe.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeexe.v            ;
+; source/pipeid.v                  ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeid.v             ;
+; source/pipeidcu.v                ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeidcu.v           ;
+; source/pipeif.v                  ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeif.v             ;
+; source/pipeimem.v                ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeimem.v           ;
+; source/pipeir.v                  ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipeir.v             ;
+; source/pipelined_computer.v      ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipelined_computer.v ;
+; source/pipemem.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipemem.v            ;
+; source/pipemwreg.v               ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipemwreg.v          ;
+; source/pll_105.v                 ; yes             ; User Wizard-Generated File   ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pll_105.v            ;
+; source/pipepc.v                  ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/pipepc.v             ;
+; source/regfile.v                 ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/regfile.v            ;
+; source/seven_segments.v          ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/seven_segments.v     ;
+; source/vga.v                     ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/vga.v                ;
+; source/vga_display.v             ; yes             ; User Verilog HDL File        ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/source/vga_display.v        ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altpll.tdf                                                                       ;
+; aglobal90.inc                    ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/aglobal90.inc                                                                    ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/stratix_pll.inc                                                                  ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/stratixii_pll.inc                                                                ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/cycloneii_pll.inc                                                                ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altsyncram.tdf                                                                   ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/stratix_ram_block.inc                                                            ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/lpm_mux.inc                                                                      ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/lpm_decode.inc                                                                   ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/a_rdenreg.inc                                                                    ;
+; altrom.inc                       ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altrom.inc                                                                       ;
+; altram.inc                       ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altram.inc                                                                       ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altdpram.inc                                                                     ;
+; altqpram.inc                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altqpram.inc                                                                     ;
+; db/altsyncram_pu81.tdf           ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/altsyncram_pu81.tdf      ;
+; db/altsyncram_i0e1.tdf           ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/altsyncram_i0e1.tdf      ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/lpm_divide.tdf                                                                   ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/abs_divider.inc                                                                  ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/sign_div_unsign.inc                                                              ;
+; db/lpm_divide_5dm.tdf            ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/lpm_divide_5dm.tdf       ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/sign_div_unsign_fkh.tdf  ;
+; db/alt_u_div_00f.tdf             ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/alt_u_div_00f.tdf        ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/add_sub_lkc.tdf          ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/add_sub_mkc.tdf          ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/lpm_mult.tdf                                                                     ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/lpm_add_sub.inc                                                                  ;
+; multcore.inc                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/multcore.inc                                                                     ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/bypassff.inc                                                                     ;
+; altshift.inc                     ; yes             ; Megafunction                 ; e:/altera/90/quartus/libraries/megafunctions/altshift.inc                                                                     ;
+; db/mult_9v01.tdf                 ; yes             ; Auto-Generated Megafunction  ; F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer_1280x1080@60/new_pipelined_computer/db/mult_9v01.tdf            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 4,538 ;
+;                                             ;       ;
+; Total combinational functions               ; 3350  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 2518  ;
+;     -- 3 input functions                    ; 616   ;
+;     -- <=2 input functions                  ; 216   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 3117  ;
+;     -- arithmetic mode                      ; 233   ;
+;                                             ;       ;
+; Total registers                             ; 1654  ;
+;     -- Dedicated logic registers            ; 1654  ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 111   ;
+; Total memory bits                           ; 3072  ;
+; Embedded Multiplier 9-bit elements          ; 6     ;
+; Total PLLs                                  ; 1     ;
+; Maximum fan-out node                        ; clock ;
+; Maximum fan-out                             ; 1665  ;
+; Total fan-out                               ; 19051 ;
+; Average fan-out                             ; 3.67  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                  ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                     ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |pipelined_computer                             ; 3350 (1)          ; 1654 (0)     ; 3072        ; 6            ; 0       ; 3         ; 111  ; 0            ; |pipelined_computer                                                                                                                                                     ; work         ;
+;    |digit:seven_dig|                            ; 116 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig                                                                                                                                     ; work         ;
+;       |BCD:bcd0|                                ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|BCD:bcd0                                                                                                                            ; work         ;
+;       |BCD:bcd1|                                ; 23 (23)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|BCD:bcd1                                                                                                                            ; work         ;
+;       |BCD:bcd2|                                ; 25 (25)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|BCD:bcd2                                                                                                                            ; work         ;
+;       |seven_segments:seven00|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven00                                                                                                              ; work         ;
+;       |seven_segments:seven01|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven01                                                                                                              ; work         ;
+;       |seven_segments:seven10|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven10                                                                                                              ; work         ;
+;       |seven_segments:seven11|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven11                                                                                                              ; work         ;
+;       |seven_segments:seven20|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven20                                                                                                              ; work         ;
+;       |seven_segments:seven21|                  ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven21                                                                                                              ; work         ;
+;       |seven_segments:seven22|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|digit:seven_dig|seven_segments:seven22                                                                                                              ; work         ;
+;    |mux2x32:wb_stage|                           ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|mux2x32:wb_stage                                                                                                                                    ; work         ;
+;    |pipedereg:de_reg|                           ; 0 (0)             ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipedereg:de_reg                                                                                                                                    ; work         ;
+;    |pipeemreg:em_reg|                           ; 0 (0)             ; 72 (72)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeemreg:em_reg                                                                                                                                    ; work         ;
+;    |pipeexe:exe_stage|                          ; 966 (5)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage                                                                                                                                   ; work         ;
+;       |alu:al_unit|                             ; 559 (454)         ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit                                                                                                                       ; work         ;
+;          |lpm_divide:Div0|                      ; 77 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0                                                                                                       ; work         ;
+;             |lpm_divide_5dm:auto_generated|     ; 77 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0|lpm_divide_5dm:auto_generated                                                                         ; work         ;
+;                |sign_div_unsign_fkh:divider|    ; 77 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_fkh:divider                                             ; work         ;
+;                   |alt_u_div_00f:divider|       ; 77 (76)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_00f:divider                       ; work         ;
+;                      |add_sub_mkc:add_sub_1|    ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_00f:divider|add_sub_mkc:add_sub_1 ; work         ;
+;          |lpm_mult:Mult0|                       ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0                                                                                                        ; work         ;
+;             |mult_9v01:auto_generated|          ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated                                                                               ; work         ;
+;       |cla32:ret_addr|                          ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|cla32:ret_addr                                                                                                                    ; work         ;
+;       |mux2x32:alu_ina|                         ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|mux2x32:alu_ina                                                                                                                   ; work         ;
+;       |mux2x32:alu_inb|                         ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|mux2x32:alu_inb                                                                                                                   ; work         ;
+;       |mux2x32:save_pc8|                        ; 308 (308)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8                                                                                                                  ; work         ;
+;    |pipeid:id_stage|                            ; 1588 (22)         ; 992 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage                                                                                                                                     ; work         ;
+;       |cla32:br_addr|                           ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|cla32:br_addr                                                                                                                       ; work         ;
+;       |mux2x5:des_reg_no|                       ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|mux2x5:des_reg_no                                                                                                                   ; work         ;
+;       |mux4x32:alu_a|                           ; 711 (711)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|mux4x32:alu_a                                                                                                                       ; work         ;
+;       |mux4x32:alu_b|                           ; 712 (712)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|mux4x32:alu_b                                                                                                                       ; work         ;
+;       |pipeidcu:cu|                             ; 73 (73)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|pipeidcu:cu                                                                                                                         ; work         ;
+;       |regfile:rf|                              ; 35 (35)           ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeid:id_stage|regfile:rf                                                                                                                          ; work         ;
+;    |pipeif:if_stage|                            ; 94 (0)            ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage                                                                                                                                     ; work         ;
+;       |cla32:pc_plus4|                          ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|cla32:pc_plus4                                                                                                                      ; work         ;
+;       |mux4x32:next_pc|                         ; 64 (64)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|mux4x32:next_pc                                                                                                                     ; work         ;
+;       |pipeimem:inst_imem|                      ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|pipeimem:inst_imem                                                                                                                  ; work         ;
+;          |lpm_rom_irom:irom|                    ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom                                                                                                ; work         ;
+;             |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component                                                                ; work         ;
+;                |altsyncram_pu81:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component|altsyncram_pu81:auto_generated                                 ; work         ;
+;    |pipeir:inst_reg|                            ; 0 (0)             ; 64 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeir:inst_reg                                                                                                                                     ; work         ;
+;       |dffe32:instruction|                      ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeir:inst_reg|dffe32:instruction                                                                                                                  ; work         ;
+;       |dffe32:pc_plus4|                         ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipeir:inst_reg|dffe32:pc_plus4                                                                                                                     ; work         ;
+;    |pipemem:mem_stage|                          ; 55 (1)            ; 42 (0)       ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage                                                                                                                                   ; work         ;
+;       |io_input_reg:io_input_regx2|             ; 0 (0)             ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|io_input_reg:io_input_regx2                                                                                                       ; work         ;
+;       |io_output_reg:io_output_regx2|           ; 5 (5)             ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|io_output_reg:io_output_regx2                                                                                                     ; work         ;
+;       |lpm_ram_dq_dram:dram|                    ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|lpm_ram_dq_dram:dram                                                                                                              ; work         ;
+;          |altsyncram:altsyncram_component|      ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component                                                                              ; work         ;
+;             |altsyncram_i0e1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component|altsyncram_i0e1:auto_generated                                               ; work         ;
+;       |mux2x32:mem_io_dataout_mux|              ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemem:mem_stage|mux2x32:mem_io_dataout_mux                                                                                                        ; work         ;
+;    |pipemwreg:mw_reg|                           ; 0 (0)             ; 71 (71)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipemwreg:mw_reg                                                                                                                                    ; work         ;
+;    |pipepc:prog_cnt|                            ; 1 (0)             ; 32 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipepc:prog_cnt                                                                                                                                     ; work         ;
+;       |dffe32:program_counter|                  ; 1 (1)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|pipepc:prog_cnt|dffe32:program_counter                                                                                                              ; work         ;
+;    |vga_display:vga_d|                          ; 497 (0)           ; 253 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d                                                                                                                                   ; work         ;
+;       |vga:screen|                              ; 497 (302)         ; 253 (54)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen                                                                                                                        ; work         ;
+;          |RAM_set:ram0|                         ; 29 (29)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram0                                                                                                           ; work         ;
+;          |RAM_set:ram1|                         ; 33 (33)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram1                                                                                                           ; work         ;
+;          |RAM_set:ram2|                         ; 29 (29)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram2                                                                                                           ; work         ;
+;          |RAM_set:ram3|                         ; 33 (33)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram3                                                                                                           ; work         ;
+;          |RAM_set:ram4|                         ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram4                                                                                                           ; work         ;
+;          |RAM_set:ram5|                         ; 29 (29)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram5                                                                                                           ; work         ;
+;          |RAM_set:ram6|                         ; 33 (33)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram6                                                                                                           ; work         ;
+;          |RAM_set:ram7|                         ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram7                                                                                                           ; work         ;
+;          |RAM_set:ram8|                         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|RAM_set:ram8                                                                                                           ; work         ;
+;          |pll_105:pll_clk|                      ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|pll_105:pll_clk                                                                                                        ; work         ;
+;             |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pipelined_computer|vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component                                                                                ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                               ;
++--------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+; Name                                                                                                                           ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                   ;
++--------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+; pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component|altsyncram_pu81:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 64           ; 32           ; --           ; --           ; 2048 ; pipelined_instmem.mif ;
+; pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component|altsyncram_i0e1:auto_generated|ALTSYNCRAM               ; AUTO ; Single Port ; 32           ; 32           ; --           ; --           ; 1024 ; pipelined_datamem.mif ;
++--------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+-----------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 3           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                           ;
++--------------------------------------------------------------+---------------------------------------------------------------+
+; Register name                                                ; Reason for Removal                                            ;
++--------------------------------------------------------------+---------------------------------------------------------------+
+; pipemem:mem_stage|io_input_reg:io_input_regx2|in_reg2[2..31] ; Stuck at GND due to stuck port data_in                        ;
+; pipemem:mem_stage|io_input_reg:io_input_regx2|in_reg1[8..31] ; Stuck at GND due to stuck port data_in                        ;
+; pipemem:mem_stage|io_input_reg:io_input_regx2|in_reg0[8..31] ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col1[0,6..7]       ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col2[0,6..7]       ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col3[0,6..7]       ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col4[0..1,5..7]    ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col5[0,6..7]       ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col1[0..1,3,5..7]  ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col2[0..1,3,5..7]  ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col3[0..1,3,5..7]  ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col4[0..1,3,5..7]  ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col5[0..1,3,5..7]  ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram6|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram5|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col1[0,7]          ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col2[2..3,7]       ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col4[1,4..5,7]     ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col5[0,7]          ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram3|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram2|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram1|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col6[0]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col0[0..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col1[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col2[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col3[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col4[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col5[7]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram0|col6[1..7]         ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col5[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col5[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col5[4]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col4[2] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col4[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col4[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col4[4]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col3[2] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col3[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col3[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col3[4]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col2[2] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col2[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col2[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col2[4]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col1[2] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram7|col1[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram7|col1[4] ;
+; pipedereg:de_reg|eimm[16..30]                                ; Merged with pipedereg:de_reg|eimm[31]                         ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col1[1]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col1[5] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col5[1,5]          ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col1[5] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col1[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col5[2,4]          ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col2[1]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col2[5] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col2[5]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[6] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col5[6]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[6] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col1[2..3]         ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col2[4]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col4[2]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col5[3]            ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col1[4] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram4|col3[1..2,5]       ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram4|col2[1] ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col1[4]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col2[5]            ; Stuck at GND due to stuck port data_in                        ;
+; vga_display:vga_d|vga:screen|RAM_set:ram8|col2[2,4]          ; Merged with vga_display:vga_d|vga:screen|RAM_set:ram8|col1[5] ;
+; Total Number of Removed Registers = 398                      ;                                                               ;
++--------------------------------------------------------------+---------------------------------------------------------------+
+* Table truncated at 100 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1654  ;
+; Number of registers using Synchronous Clear  ; 11    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1636  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1112  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; vga_display:vga_d|vga:screen|hsync     ; 3       ;
+; vga_display:vga_d|vga:screen|vsync     ; 2       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |pipelined_computer|pipepc:prog_cnt|dffe32:program_counter|q[0]       ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |pipelined_computer|pipepc:prog_cnt|dffe32:program_counter|q[29]      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |pipelined_computer|pipeid:id_stage|pipeidcu:cu|fwdb[0]               ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |pipelined_computer|pipeid:id_stage|pipeidcu:cu|fwda[1]               ;
+; 65:1               ; 6 bits    ; 258 LEs       ; 24 LEs               ; 234 LEs                ; No         ; |pipelined_computer|pipemem:mem_stage|mux2x32:mem_io_dataout_mux|y[2] ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 8 LEs                ; 78 LEs                 ; No         ; |pipelined_computer|pipemem:mem_stage|mux2x32:mem_io_dataout_mux|y[0] ;
+; 35:1               ; 32 bits   ; 736 LEs       ; 704 LEs              ; 32 LEs                 ; No         ; |pipelined_computer|pipeid:id_stage|mux4x32:alu_b|Mux7                ;
+; 35:1               ; 32 bits   ; 736 LEs       ; 704 LEs              ; 32 LEs                 ; No         ; |pipelined_computer|pipeid:id_stage|mux4x32:alu_a|Mux30               ;
+; 23:1               ; 7 bits    ; 105 LEs       ; 56 LEs               ; 49 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[13]          ;
+; 24:1               ; 7 bits    ; 112 LEs       ; 63 LEs               ; 49 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[23]          ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[7]           ;
+; 25:1               ; 4 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[24]          ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[2]           ;
+; 26:1               ; 2 bits    ; 34 LEs        ; 20 LEs               ; 14 LEs                 ; No         ; |pipelined_computer|pipeexe:exe_stage|mux2x32:save_pc8|y[28]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component|altsyncram_pu81:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component|altsyncram_i0e1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_display:vga_d|vga:screen ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; H_SYNC         ; 112   ; Signed Integer                                   ;
+; H_BACK         ; 248   ; Signed Integer                                   ;
+; H_ACT          ; 1280  ; Signed Integer                                   ;
+; H_FRONT        ; 48    ; Signed Integer                                   ;
+; H_BLANK_FRONT  ; 360   ; Signed Integer                                   ;
+; H_BLANK_BACK   ; 1640  ; Signed Integer                                   ;
+; H_TOTAL        ; 1688  ; Signed Integer                                   ;
+; V_SYNC         ; 3     ; Signed Integer                                   ;
+; V_BACK         ; 38    ; Signed Integer                                   ;
+; V_ACT          ; 1024  ; Signed Integer                                   ;
+; V_FRONT        ; 1     ; Signed Integer                                   ;
+; V_BLANK_FRONT  ; 41    ; Signed Integer                                   ;
+; V_BLANK_BACK   ; 1065  ; Signed Integer                                   ;
+; V_TOTAL        ; 1066  ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component ;
++-------------------------------+-------------------+---------------------------------------------------------------+
+; Parameter Name                ; Value             ; Type                                                          ;
++-------------------------------+-------------------+---------------------------------------------------------------+
+; OPERATION_MODE                ; NORMAL            ; Untyped                                                       ;
+; PLL_TYPE                      ; AUTO              ; Untyped                                                       ;
+; QUALIFY_CONF_DONE             ; OFF               ; Untyped                                                       ;
+; COMPENSATE_CLOCK              ; CLK0              ; Untyped                                                       ;
+; SCAN_CHAIN                    ; LONG              ; Untyped                                                       ;
+; PRIMARY_CLOCK                 ; INCLK0            ; Untyped                                                       ;
+; INCLK0_INPUT_FREQUENCY        ; 20000             ; Signed Integer                                                ;
+; INCLK1_INPUT_FREQUENCY        ; 0                 ; Untyped                                                       ;
+; GATE_LOCK_SIGNAL              ; NO                ; Untyped                                                       ;
+; GATE_LOCK_COUNTER             ; 0                 ; Untyped                                                       ;
+; LOCK_HIGH                     ; 1                 ; Untyped                                                       ;
+; LOCK_LOW                      ; 1                 ; Untyped                                                       ;
+; VALID_LOCK_MULTIPLIER         ; 1                 ; Untyped                                                       ;
+; INVALID_LOCK_MULTIPLIER       ; 5                 ; Untyped                                                       ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF               ; Untyped                                                       ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF               ; Untyped                                                       ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF               ; Untyped                                                       ;
+; SKIP_VCO                      ; OFF               ; Untyped                                                       ;
+; SWITCH_OVER_COUNTER           ; 0                 ; Untyped                                                       ;
+; SWITCH_OVER_TYPE              ; AUTO              ; Untyped                                                       ;
+; FEEDBACK_SOURCE               ; EXTCLK0           ; Untyped                                                       ;
+; BANDWIDTH                     ; 0                 ; Untyped                                                       ;
+; BANDWIDTH_TYPE                ; AUTO              ; Untyped                                                       ;
+; SPREAD_FREQUENCY              ; 0                 ; Untyped                                                       ;
+; DOWN_SPREAD                   ; 0                 ; Untyped                                                       ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF               ; Untyped                                                       ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF               ; Untyped                                                       ;
+; CLK9_MULTIPLY_BY              ; 0                 ; Untyped                                                       ;
+; CLK8_MULTIPLY_BY              ; 0                 ; Untyped                                                       ;
+; CLK7_MULTIPLY_BY              ; 0                 ; Untyped                                                       ;
+; CLK6_MULTIPLY_BY              ; 0                 ; Untyped                                                       ;
+; CLK5_MULTIPLY_BY              ; 1                 ; Untyped                                                       ;
+; CLK4_MULTIPLY_BY              ; 1                 ; Untyped                                                       ;
+; CLK3_MULTIPLY_BY              ; 1                 ; Untyped                                                       ;
+; CLK2_MULTIPLY_BY              ; 1                 ; Untyped                                                       ;
+; CLK1_MULTIPLY_BY              ; 1                 ; Untyped                                                       ;
+; CLK0_MULTIPLY_BY              ; 21                ; Signed Integer                                                ;
+; CLK9_DIVIDE_BY                ; 0                 ; Untyped                                                       ;
+; CLK8_DIVIDE_BY                ; 0                 ; Untyped                                                       ;
+; CLK7_DIVIDE_BY                ; 0                 ; Untyped                                                       ;
+; CLK6_DIVIDE_BY                ; 0                 ; Untyped                                                       ;
+; CLK5_DIVIDE_BY                ; 1                 ; Untyped                                                       ;
+; CLK4_DIVIDE_BY                ; 1                 ; Untyped                                                       ;
+; CLK3_DIVIDE_BY                ; 1                 ; Untyped                                                       ;
+; CLK2_DIVIDE_BY                ; 1                 ; Untyped                                                       ;
+; CLK1_DIVIDE_BY                ; 1                 ; Untyped                                                       ;
+; CLK0_DIVIDE_BY                ; 10                ; Signed Integer                                                ;
+; CLK9_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK8_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK7_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK6_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK5_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK4_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK3_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK2_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK1_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK0_PHASE_SHIFT              ; 0                 ; Untyped                                                       ;
+; CLK5_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK4_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK3_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK2_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK1_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK0_TIME_DELAY               ; 0                 ; Untyped                                                       ;
+; CLK9_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK8_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK7_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK6_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK5_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK4_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK3_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK2_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK1_DUTY_CYCLE               ; 50                ; Untyped                                                       ;
+; CLK0_DUTY_CYCLE               ; 50                ; Signed Integer                                                ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF               ; Untyped                                                       ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF               ; Untyped                                                       ;
+; LOCK_WINDOW_UI                ;  0.05             ; Untyped                                                       ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED            ; Untyped                                                       ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED            ; Untyped                                                       ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED            ; Untyped                                                       ;
+; DPA_MULTIPLY_BY               ; 0                 ; Untyped                                                       ;
+; DPA_DIVIDE_BY                 ; 1                 ; Untyped                                                       ;
+; DPA_DIVIDER                   ; 0                 ; Untyped                                                       ;
+; EXTCLK3_MULTIPLY_BY           ; 1                 ; Untyped                                                       ;
+; EXTCLK2_MULTIPLY_BY           ; 1                 ; Untyped                                                       ;
+; EXTCLK1_MULTIPLY_BY           ; 1                 ; Untyped                                                       ;
+; EXTCLK0_MULTIPLY_BY           ; 1                 ; Untyped                                                       ;
+; EXTCLK3_DIVIDE_BY             ; 1                 ; Untyped                                                       ;
+; EXTCLK2_DIVIDE_BY             ; 1                 ; Untyped                                                       ;
+; EXTCLK1_DIVIDE_BY             ; 1                 ; Untyped                                                       ;
+; EXTCLK0_DIVIDE_BY             ; 1                 ; Untyped                                                       ;
+; EXTCLK3_PHASE_SHIFT           ; 0                 ; Untyped                                                       ;
+; EXTCLK2_PHASE_SHIFT           ; 0                 ; Untyped                                                       ;
+; EXTCLK1_PHASE_SHIFT           ; 0                 ; Untyped                                                       ;
+; EXTCLK0_PHASE_SHIFT           ; 0                 ; Untyped                                                       ;
+; EXTCLK3_TIME_DELAY            ; 0                 ; Untyped                                                       ;
+; EXTCLK2_TIME_DELAY            ; 0                 ; Untyped                                                       ;
+; EXTCLK1_TIME_DELAY            ; 0                 ; Untyped                                                       ;
+; EXTCLK0_TIME_DELAY            ; 0                 ; Untyped                                                       ;
+; EXTCLK3_DUTY_CYCLE            ; 50                ; Untyped                                                       ;
+; EXTCLK2_DUTY_CYCLE            ; 50                ; Untyped                                                       ;
+; EXTCLK1_DUTY_CYCLE            ; 50                ; Untyped                                                       ;
+; EXTCLK0_DUTY_CYCLE            ; 50                ; Untyped                                                       ;
+; VCO_MULTIPLY_BY               ; 0                 ; Untyped                                                       ;
+; VCO_DIVIDE_BY                 ; 0                 ; Untyped                                                       ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                 ; Untyped                                                       ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                 ; Untyped                                                       ;
+; VCO_MIN                       ; 0                 ; Untyped                                                       ;
+; VCO_MAX                       ; 0                 ; Untyped                                                       ;
+; VCO_CENTER                    ; 0                 ; Untyped                                                       ;
+; PFD_MIN                       ; 0                 ; Untyped                                                       ;
+; PFD_MAX                       ; 0                 ; Untyped                                                       ;
+; M_INITIAL                     ; 0                 ; Untyped                                                       ;
+; M                             ; 0                 ; Untyped                                                       ;
+; N                             ; 1                 ; Untyped                                                       ;
+; M2                            ; 1                 ; Untyped                                                       ;
+; N2                            ; 1                 ; Untyped                                                       ;
+; SS                            ; 1                 ; Untyped                                                       ;
+; C0_HIGH                       ; 0                 ; Untyped                                                       ;
+; C1_HIGH                       ; 0                 ; Untyped                                                       ;
+; C2_HIGH                       ; 0                 ; Untyped                                                       ;
+; C3_HIGH                       ; 0                 ; Untyped                                                       ;
+; C4_HIGH                       ; 0                 ; Untyped                                                       ;
+; C5_HIGH                       ; 0                 ; Untyped                                                       ;
+; C6_HIGH                       ; 0                 ; Untyped                                                       ;
+; C7_HIGH                       ; 0                 ; Untyped                                                       ;
+; C8_HIGH                       ; 0                 ; Untyped                                                       ;
+; C9_HIGH                       ; 0                 ; Untyped                                                       ;
+; C0_LOW                        ; 0                 ; Untyped                                                       ;
+; C1_LOW                        ; 0                 ; Untyped                                                       ;
+; C2_LOW                        ; 0                 ; Untyped                                                       ;
+; C3_LOW                        ; 0                 ; Untyped                                                       ;
+; C4_LOW                        ; 0                 ; Untyped                                                       ;
+; C5_LOW                        ; 0                 ; Untyped                                                       ;
+; C6_LOW                        ; 0                 ; Untyped                                                       ;
+; C7_LOW                        ; 0                 ; Untyped                                                       ;
+; C8_LOW                        ; 0                 ; Untyped                                                       ;
+; C9_LOW                        ; 0                 ; Untyped                                                       ;
+; C0_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C1_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C2_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C3_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C4_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C5_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C6_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C7_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C8_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C9_INITIAL                    ; 0                 ; Untyped                                                       ;
+; C0_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C1_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C2_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C3_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C4_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C5_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C6_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C7_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C8_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C9_MODE                       ; BYPASS            ; Untyped                                                       ;
+; C0_PH                         ; 0                 ; Untyped                                                       ;
+; C1_PH                         ; 0                 ; Untyped                                                       ;
+; C2_PH                         ; 0                 ; Untyped                                                       ;
+; C3_PH                         ; 0                 ; Untyped                                                       ;
+; C4_PH                         ; 0                 ; Untyped                                                       ;
+; C5_PH                         ; 0                 ; Untyped                                                       ;
+; C6_PH                         ; 0                 ; Untyped                                                       ;
+; C7_PH                         ; 0                 ; Untyped                                                       ;
+; C8_PH                         ; 0                 ; Untyped                                                       ;
+; C9_PH                         ; 0                 ; Untyped                                                       ;
+; L0_HIGH                       ; 1                 ; Untyped                                                       ;
+; L1_HIGH                       ; 1                 ; Untyped                                                       ;
+; G0_HIGH                       ; 1                 ; Untyped                                                       ;
+; G1_HIGH                       ; 1                 ; Untyped                                                       ;
+; G2_HIGH                       ; 1                 ; Untyped                                                       ;
+; G3_HIGH                       ; 1                 ; Untyped                                                       ;
+; E0_HIGH                       ; 1                 ; Untyped                                                       ;
+; E1_HIGH                       ; 1                 ; Untyped                                                       ;
+; E2_HIGH                       ; 1                 ; Untyped                                                       ;
+; E3_HIGH                       ; 1                 ; Untyped                                                       ;
+; L0_LOW                        ; 1                 ; Untyped                                                       ;
+; L1_LOW                        ; 1                 ; Untyped                                                       ;
+; G0_LOW                        ; 1                 ; Untyped                                                       ;
+; G1_LOW                        ; 1                 ; Untyped                                                       ;
+; G2_LOW                        ; 1                 ; Untyped                                                       ;
+; G3_LOW                        ; 1                 ; Untyped                                                       ;
+; E0_LOW                        ; 1                 ; Untyped                                                       ;
+; E1_LOW                        ; 1                 ; Untyped                                                       ;
+; E2_LOW                        ; 1                 ; Untyped                                                       ;
+; E3_LOW                        ; 1                 ; Untyped                                                       ;
+; L0_INITIAL                    ; 1                 ; Untyped                                                       ;
+; L1_INITIAL                    ; 1                 ; Untyped                                                       ;
+; G0_INITIAL                    ; 1                 ; Untyped                                                       ;
+; G1_INITIAL                    ; 1                 ; Untyped                                                       ;
+; G2_INITIAL                    ; 1                 ; Untyped                                                       ;
+; G3_INITIAL                    ; 1                 ; Untyped                                                       ;
+; E0_INITIAL                    ; 1                 ; Untyped                                                       ;
+; E1_INITIAL                    ; 1                 ; Untyped                                                       ;
+; E2_INITIAL                    ; 1                 ; Untyped                                                       ;
+; E3_INITIAL                    ; 1                 ; Untyped                                                       ;
+; L0_MODE                       ; BYPASS            ; Untyped                                                       ;
+; L1_MODE                       ; BYPASS            ; Untyped                                                       ;
+; G0_MODE                       ; BYPASS            ; Untyped                                                       ;
+; G1_MODE                       ; BYPASS            ; Untyped                                                       ;
+; G2_MODE                       ; BYPASS            ; Untyped                                                       ;
+; G3_MODE                       ; BYPASS            ; Untyped                                                       ;
+; E0_MODE                       ; BYPASS            ; Untyped                                                       ;
+; E1_MODE                       ; BYPASS            ; Untyped                                                       ;
+; E2_MODE                       ; BYPASS            ; Untyped                                                       ;
+; E3_MODE                       ; BYPASS            ; Untyped                                                       ;
+; L0_PH                         ; 0                 ; Untyped                                                       ;
+; L1_PH                         ; 0                 ; Untyped                                                       ;
+; G0_PH                         ; 0                 ; Untyped                                                       ;
+; G1_PH                         ; 0                 ; Untyped                                                       ;
+; G2_PH                         ; 0                 ; Untyped                                                       ;
+; G3_PH                         ; 0                 ; Untyped                                                       ;
+; E0_PH                         ; 0                 ; Untyped                                                       ;
+; E1_PH                         ; 0                 ; Untyped                                                       ;
+; E2_PH                         ; 0                 ; Untyped                                                       ;
+; E3_PH                         ; 0                 ; Untyped                                                       ;
+; M_PH                          ; 0                 ; Untyped                                                       ;
+; C1_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C2_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C3_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C4_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C5_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C6_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C7_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C8_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; C9_USE_CASC_IN                ; OFF               ; Untyped                                                       ;
+; CLK0_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK1_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK2_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK3_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK4_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK5_COUNTER                  ; G0                ; Untyped                                                       ;
+; CLK6_COUNTER                  ; E0                ; Untyped                                                       ;
+; CLK7_COUNTER                  ; E1                ; Untyped                                                       ;
+; CLK8_COUNTER                  ; E2                ; Untyped                                                       ;
+; CLK9_COUNTER                  ; E3                ; Untyped                                                       ;
+; L0_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; L1_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; G0_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; G1_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; G2_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; G3_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; E0_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; E1_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; E2_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; E3_TIME_DELAY                 ; 0                 ; Untyped                                                       ;
+; M_TIME_DELAY                  ; 0                 ; Untyped                                                       ;
+; N_TIME_DELAY                  ; 0                 ; Untyped                                                       ;
+; EXTCLK3_COUNTER               ; E3                ; Untyped                                                       ;
+; EXTCLK2_COUNTER               ; E2                ; Untyped                                                       ;
+; EXTCLK1_COUNTER               ; E1                ; Untyped                                                       ;
+; EXTCLK0_COUNTER               ; E0                ; Untyped                                                       ;
+; ENABLE0_COUNTER               ; L0                ; Untyped                                                       ;
+; ENABLE1_COUNTER               ; L0                ; Untyped                                                       ;
+; CHARGE_PUMP_CURRENT           ; 2                 ; Untyped                                                       ;
+; LOOP_FILTER_R                 ;  1.000000         ; Untyped                                                       ;
+; LOOP_FILTER_C                 ; 5                 ; Untyped                                                       ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999              ; Untyped                                                       ;
+; LOOP_FILTER_R_BITS            ; 9999              ; Untyped                                                       ;
+; LOOP_FILTER_C_BITS            ; 9999              ; Untyped                                                       ;
+; VCO_POST_SCALE                ; 0                 ; Untyped                                                       ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                 ; Untyped                                                       ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                 ; Untyped                                                       ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                 ; Untyped                                                       ;
+; INTENDED_DEVICE_FAMILY        ; Cyclone II        ; Untyped                                                       ;
+; PORT_CLKENA0                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKENA1                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKENA2                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKENA3                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKENA4                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKENA5                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_EXTCLK0                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_EXTCLK1                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_EXTCLK2                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_EXTCLK3                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKBAD0                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKBAD1                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK0                     ; PORT_USED         ; Untyped                                                       ;
+; PORT_CLK1                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK2                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK3                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK4                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK5                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK6                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK7                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK8                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLK9                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANDATA                 ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANDONE                 ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKLOSS                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_INCLK1                   ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_INCLK0                   ; PORT_USED         ; Untyped                                                       ;
+; PORT_FBIN                     ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_PLLENA                   ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CLKSWITCH                ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_ARESET                   ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_PFDENA                   ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANCLK                  ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANACLR                 ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANREAD                 ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANWRITE                ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_LOCKED                   ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_PHASEDONE                ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_PHASESTEP                ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_SCANCLKENA               ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED       ; Untyped                                                       ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY ; Untyped                                                       ;
+; M_TEST_SOURCE                 ; 5                 ; Untyped                                                       ;
+; C0_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C1_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C2_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C3_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C4_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C5_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C6_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C7_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C8_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; C9_TEST_SOURCE                ; 5                 ; Untyped                                                       ;
+; CBXI_PARAMETER                ; NOTHING           ; Untyped                                                       ;
+; VCO_FREQUENCY_CONTROL         ; AUTO              ; Untyped                                                       ;
+; VCO_PHASE_SHIFT_STEP          ; 0                 ; Untyped                                                       ;
+; WIDTH_CLOCK                   ; 6                 ; Untyped                                                       ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                 ; Untyped                                                       ;
+; USING_FBMIMICBIDIR_PORT       ; OFF               ; Untyped                                                       ;
+; DEVICE_FAMILY                 ; Cyclone II        ; Untyped                                                       ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED            ; Untyped                                                       ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF               ; Untyped                                                       ;
+; AUTO_CARRY_CHAINS             ; ON                ; AUTO_CARRY                                                    ;
+; IGNORE_CARRY_BUFFERS          ; OFF               ; IGNORE_CARRY                                                  ;
+; AUTO_CASCADE_CHAINS           ; ON                ; AUTO_CASCADE                                                  ;
+; IGNORE_CASCADE_BUFFERS        ; OFF               ; IGNORE_CASCADE                                                ;
++-------------------------------+-------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                                                 ;
++------------------------------------+-----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                                              ;
+; OPERATION_MODE                     ; ROM                   ; Untyped                                                              ;
+; WIDTH_A                            ; 32                    ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 6                     ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 64                    ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED          ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                                              ;
+; WIDTH_B                            ; 1                     ; Untyped                                                              ;
+; WIDTHAD_B                          ; 1                     ; Untyped                                                              ;
+; NUMWORDS_B                         ; 1                     ; Untyped                                                              ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                     ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                              ;
+; INIT_FILE                          ; pipelined_instmem.mif ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                     ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone II            ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_pu81       ; Untyped                                                              ;
++------------------------------------+-----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component ;
++------------------------------------+-----------------------+--------------------------------------------------------+
+; Parameter Name                     ; Value                 ; Type                                                   ;
++------------------------------------+-----------------------+--------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                     ; Untyped                                                ;
+; AUTO_CARRY_CHAINS                  ; ON                    ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                   ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS                ; ON                    ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                   ; IGNORE_CASCADE                                         ;
+; WIDTH_BYTEENA                      ; 1                     ; Untyped                                                ;
+; OPERATION_MODE                     ; SINGLE_PORT           ; Untyped                                                ;
+; WIDTH_A                            ; 32                    ; Signed Integer                                         ;
+; WIDTHAD_A                          ; 5                     ; Signed Integer                                         ;
+; NUMWORDS_A                         ; 32                    ; Signed Integer                                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED          ; Untyped                                                ;
+; ADDRESS_ACLR_A                     ; NONE                  ; Untyped                                                ;
+; OUTDATA_ACLR_A                     ; NONE                  ; Untyped                                                ;
+; WRCONTROL_ACLR_A                   ; NONE                  ; Untyped                                                ;
+; INDATA_ACLR_A                      ; NONE                  ; Untyped                                                ;
+; BYTEENA_ACLR_A                     ; NONE                  ; Untyped                                                ;
+; WIDTH_B                            ; 1                     ; Untyped                                                ;
+; WIDTHAD_B                          ; 1                     ; Untyped                                                ;
+; NUMWORDS_B                         ; 1                     ; Untyped                                                ;
+; INDATA_REG_B                       ; CLOCK1                ; Untyped                                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                ; Untyped                                                ;
+; RDCONTROL_REG_B                    ; CLOCK1                ; Untyped                                                ;
+; ADDRESS_REG_B                      ; CLOCK1                ; Untyped                                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED          ; Untyped                                                ;
+; BYTEENA_REG_B                      ; CLOCK1                ; Untyped                                                ;
+; INDATA_ACLR_B                      ; NONE                  ; Untyped                                                ;
+; WRCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                ;
+; ADDRESS_ACLR_B                     ; NONE                  ; Untyped                                                ;
+; OUTDATA_ACLR_B                     ; NONE                  ; Untyped                                                ;
+; RDCONTROL_ACLR_B                   ; NONE                  ; Untyped                                                ;
+; BYTEENA_ACLR_B                     ; NONE                  ; Untyped                                                ;
+; WIDTH_BYTEENA_A                    ; 1                     ; Signed Integer                                         ;
+; WIDTH_BYTEENA_B                    ; 1                     ; Untyped                                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                  ; Untyped                                                ;
+; BYTE_SIZE                          ; 8                     ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ  ; Untyped                                                ;
+; INIT_FILE                          ; pipelined_datamem.mif ; Untyped                                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A                ; Untyped                                                ;
+; MAXIMUM_DEPTH                      ; 0                     ; Untyped                                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                ; Untyped                                                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                ; Untyped                                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                ; Untyped                                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                ; Untyped                                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN       ; Untyped                                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN       ; Untyped                                                ;
+; ENABLE_ECC                         ; FALSE                 ; Untyped                                                ;
+; DEVICE_FAMILY                      ; Cyclone II            ; Untyped                                                ;
+; CBXI_PARAMETER                     ; altsyncram_i0e1       ; Untyped                                                ;
++------------------------------------+-----------------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_5dm ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0 ;
++------------------------------------------------+------------+---------------------------------+
+; Parameter Name                                 ; Value      ; Type                            ;
++------------------------------------------------+------------+---------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                  ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                         ;
+; LPM_WIDTHB                                     ; 32         ; Untyped                         ;
+; LPM_WIDTHP                                     ; 64         ; Untyped                         ;
+; LPM_WIDTHR                                     ; 64         ; Untyped                         ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped                         ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                         ;
+; LATENCY                                        ; 0          ; Untyped                         ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                         ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                         ;
+; USE_EAB                                        ; OFF        ; Untyped                         ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                         ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                         ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                         ;
+; CBXI_PARAMETER                                 ; mult_9v01  ; Untyped                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                         ;
++------------------------------------------------+------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                                                         ;
++-------------------------------+----------------------------------------------------------------------+
+; Name                          ; Value                                                                ;
++-------------------------------+----------------------------------------------------------------------+
+; Number of entity instances    ; 1                                                                    ;
+; Entity Instance               ; vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                                                               ;
+;     -- PLL_TYPE               ; AUTO                                                                 ;
+;     -- PRIMARY_CLOCK          ; INCLK0                                                               ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                                                                ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                                                    ;
+;     -- VCO_MULTIPLY_BY        ; 0                                                                    ;
+;     -- VCO_DIVIDE_BY          ; 0                                                                    ;
++-------------------------------+----------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                 ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                    ;
+; Entity Instance                           ; pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                                  ;
+;     -- WIDTH_A                            ; 32                                                                                   ;
+;     -- NUMWORDS_A                         ; 64                                                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 1                                                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                            ;
+; Entity Instance                           ; pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component               ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                          ;
+;     -- WIDTH_A                            ; 32                                                                                   ;
+;     -- NUMWORDS_A                         ; 32                                                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 1                                                                                    ;
+;     -- NUMWORDS_B                         ; 1                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                            ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                       ;
++---------------------------------------+----------------------------------------------+
+; Name                                  ; Value                                        ;
++---------------------------------------+----------------------------------------------+
+; Number of entity instances            ; 1                                            ;
+; Entity Instance                       ; pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                           ;
+;     -- LPM_WIDTHB                     ; 32                                           ;
+;     -- LPM_WIDTHP                     ; 64                                           ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                           ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                           ;
+;     -- USE_EAB                        ; OFF                                          ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                         ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                           ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                           ;
++---------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pipemem:mem_stage"                                                                              ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; in_port0[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; in_port1[31..8]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; in_port2[31..2]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; out_port0[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out_port1[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out_port2[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pipeexe:exe_stage|alu:al_unit"                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; z    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "pipeexe:exe_stage|mux2x32:alu_ina" ;
++-----------+-------+----------+--------------------------------+
+; Port      ; Type  ; Severity ; Details                        ;
++-----------+-------+----------+--------------------------------+
+; a1[31..5] ; Input ; Info     ; Stuck at GND                   ;
++-----------+-------+----------+--------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "pipeexe:exe_stage|cla32:ret_addr" ;
++-----------+-------+----------+-------------------------------+
+; Port      ; Type  ; Severity ; Details                       ;
++-----------+-------+----------+-------------------------------+
+; x1[31..3] ; Input ; Info     ; Stuck at GND                  ;
+; x1[1..0]  ; Input ; Info     ; Stuck at GND                  ;
+; x1[2]     ; Input ; Info     ; Stuck at VCC                  ;
+; e         ; Input ; Info     ; Stuck at GND                  ;
++-----------+-------+----------+-------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "pipeid:id_stage|cla32:br_addr" ;
++----------+-------+----------+-----------------------------+
+; Port     ; Type  ; Severity ; Details                     ;
++----------+-------+----------+-----------------------------+
+; x1[1..0] ; Input ; Info     ; Stuck at GND                ;
+; e        ; Input ; Info     ; Stuck at GND                ;
++----------+-------+----------+-----------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "pipeif:if_stage|cla32:pc_plus4" ;
++-----------+-------+----------+-----------------------------+
+; Port      ; Type  ; Severity ; Details                     ;
++-----------+-------+----------+-----------------------------+
+; x1[31..3] ; Input ; Info     ; Stuck at GND                ;
+; x1[1..0]  ; Input ; Info     ; Stuck at GND                ;
+; x1[2]     ; Input ; Info     ; Stuck at VCC                ;
+; e         ; Input ; Info     ; Stuck at GND                ;
++-----------+-------+----------+-----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_display:vga_d|vga:screen|RAM_set:ram8" ;
++------------+-------+----------+---------------------------------------+
+; Port       ; Type  ; Severity ; Details                               ;
++------------+-------+----------+---------------------------------------+
+; data[5..4] ; Input ; Info     ; Stuck at VCC                          ;
++------------+-------+----------+---------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_display:vga_d|vga:screen|RAM_set:ram7" ;
++------------+-------+----------+---------------------------------------+
+; Port       ; Type  ; Severity ; Details                               ;
++------------+-------+----------+---------------------------------------+
+; data[5..1] ; Input ; Info     ; Stuck at VCC                          ;
+; data[0]    ; Input ; Info     ; Stuck at GND                          ;
++------------+-------+----------+---------------------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "vga_display:vga_d|vga:screen" ;
++-------------+-------+----------+-------------------------+
+; Port        ; Type  ; Severity ; Details                 ;
++-------------+-------+----------+-------------------------+
+; data0[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data1[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data2[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data3[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data4[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data5[5..4] ; Input ; Info     ; Stuck at GND            ;
+; data6[5..4] ; Input ; Info     ; Stuck at GND            ;
++-------------+-------+----------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_display:vga_d|BCD:bcd2"                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_display:vga_d|BCD:bcd1"                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "digit:seven_dig|BCD:bcd1"                                                               ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "digit:seven_dig|BCD:bcd0"                                                               ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue May 23 21:41:30 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pipelined_computer -c pipelined_computer
+Info: Found 1 design units, including 1 entities, in source file source/RAM_set.v
+    Info: Found entity 1: RAM_set
+Info: Found 1 design units, including 1 entities, in source file source/alu.v
+    Info: Found entity 1: alu
+Info: Found 1 design units, including 1 entities, in source file source/BCD.v
+    Info: Found entity 1: BCD
+Info: Found 1 design units, including 1 entities, in source file source/cla32.v
+    Info: Found entity 1: cla32
+Info: Found 1 design units, including 1 entities, in source file source/diffe32.v
+    Info: Found entity 1: dffe32
+Info: Found 1 design units, including 1 entities, in source file source/digit.v
+    Info: Found entity 1: digit
+Info: Found 1 design units, including 1 entities, in source file source/io_input_mux.v
+    Info: Found entity 1: io_input_mux
+Info: Found 1 design units, including 1 entities, in source file source/io_input_reg.v
+    Info: Found entity 1: io_input_reg
+Info: Found 1 design units, including 1 entities, in source file source/io_output_reg.v
+    Info: Found entity 1: io_output_reg
+Info: Found 1 design units, including 1 entities, in source file source/lpm_ram_dq_dram.v
+    Info: Found entity 1: lpm_ram_dq_dram
+Info: Found 1 design units, including 1 entities, in source file source/lpm_rom_irom.v
+    Info: Found entity 1: lpm_rom_irom
+Info: Found 1 design units, including 1 entities, in source file source/mux2x5.v
+    Info: Found entity 1: mux2x5
+Info: Found 1 design units, including 1 entities, in source file source/mux2x32.v
+    Info: Found entity 1: mux2x32
+Info: Found 1 design units, including 1 entities, in source file source/mux4x32.v
+    Info: Found entity 1: mux4x32
+Info: Found 1 design units, including 1 entities, in source file source/pipedereg.v
+    Info: Found entity 1: pipedereg
+Info: Found 1 design units, including 1 entities, in source file source/pipeemreg.v
+    Info: Found entity 1: pipeemreg
+Info: Found 1 design units, including 1 entities, in source file source/pipeexe.v
+    Info: Found entity 1: pipeexe
+Info: Found 1 design units, including 1 entities, in source file source/pipeid.v
+    Info: Found entity 1: pipeid
+Info: Found 1 design units, including 1 entities, in source file source/pipeidcu.v
+    Info: Found entity 1: pipeidcu
+Info: Found 1 design units, including 1 entities, in source file source/pipeif.v
+    Info: Found entity 1: pipeif
+Info: Found 1 design units, including 1 entities, in source file source/pipeimem.v
+    Info: Found entity 1: pipeimem
+Info: Found 1 design units, including 1 entities, in source file source/pipeir.v
+    Info: Found entity 1: pipeir
+Info: Found 1 design units, including 1 entities, in source file source/pipelined_computer.v
+    Info: Found entity 1: pipelined_computer
+Info: Found 1 design units, including 1 entities, in source file source/pipemem.v
+    Info: Found entity 1: pipemem
+Info: Found 1 design units, including 1 entities, in source file source/pipemwreg.v
+    Info: Found entity 1: pipemwreg
+Info: Found 1 design units, including 1 entities, in source file source/pll.v
+    Info: Found entity 1: pll
+Info: Found 1 design units, including 1 entities, in source file source/pll_105.v
+    Info: Found entity 1: pll_105
+Info: Found 1 design units, including 1 entities, in source file source/pipepc.v
+    Info: Found entity 1: pipepc
+Info: Found 1 design units, including 1 entities, in source file source/regfile.v
+    Info: Found entity 1: regfile
+Info: Found 1 design units, including 1 entities, in source file source/seven_segments.v
+    Info: Found entity 1: seven_segments
+Info: Found 1 design units, including 1 entities, in source file source/vga.v
+    Info: Found entity 1: vga
+Info: Found 1 design units, including 1 entities, in source file source/vga_display.v
+    Info: Found entity 1: vga_display
+Info: Elaborating entity "pipelined_computer" for the top level hierarchy
+Info: Elaborating entity "digit" for hierarchy "digit:seven_dig"
+Info: Elaborating entity "BCD" for hierarchy "digit:seven_dig|BCD:bcd0"
+Info: Elaborating entity "seven_segments" for hierarchy "digit:seven_dig|seven_segments:seven00"
+Info: Elaborating entity "vga_display" for hierarchy "vga_display:vga_d"
+Info: Elaborating entity "vga" for hierarchy "vga_display:vga_d|vga:screen"
+Warning (10230): Verilog HDL assignment warning at vga.v(111): truncated value with size 32 to match size of target (11)
+Warning (10230): Verilog HDL assignment warning at vga.v(112): truncated value with size 32 to match size of target (11)
+Info: Elaborating entity "pll_105" for hierarchy "vga_display:vga_d|vga:screen|pll_105:pll_clk"
+Info: Elaborating entity "altpll" for hierarchy "vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component"
+Info: Elaborated megafunction instantiation "vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component"
+Info: Instantiated megafunction "vga_display:vga_d|vga:screen|pll_105:pll_clk|altpll:altpll_component" with the following parameter:
+    Info: Parameter "clk0_divide_by" = "10"
+    Info: Parameter "clk0_duty_cycle" = "50"
+    Info: Parameter "clk0_multiply_by" = "21"
+    Info: Parameter "clk0_phase_shift" = "0"
+    Info: Parameter "compensate_clock" = "CLK0"
+    Info: Parameter "inclk0_input_frequency" = "20000"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_hint" = "CBX_MODULE_PREFIX=pll_105"
+    Info: Parameter "lpm_type" = "altpll"
+    Info: Parameter "operation_mode" = "NORMAL"
+    Info: Parameter "port_activeclock" = "PORT_UNUSED"
+    Info: Parameter "port_areset" = "PORT_UNUSED"
+    Info: Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info: Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info: Parameter "port_clkloss" = "PORT_UNUSED"
+    Info: Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info: Parameter "port_configupdate" = "PORT_UNUSED"
+    Info: Parameter "port_fbin" = "PORT_UNUSED"
+    Info: Parameter "port_inclk0" = "PORT_USED"
+    Info: Parameter "port_inclk1" = "PORT_UNUSED"
+    Info: Parameter "port_locked" = "PORT_UNUSED"
+    Info: Parameter "port_pfdena" = "PORT_UNUSED"
+    Info: Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info: Parameter "port_phasedone" = "PORT_UNUSED"
+    Info: Parameter "port_phasestep" = "PORT_UNUSED"
+    Info: Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info: Parameter "port_pllena" = "PORT_UNUSED"
+    Info: Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info: Parameter "port_scanclk" = "PORT_UNUSED"
+    Info: Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info: Parameter "port_scandata" = "PORT_UNUSED"
+    Info: Parameter "port_scandataout" = "PORT_UNUSED"
+    Info: Parameter "port_scandone" = "PORT_UNUSED"
+    Info: Parameter "port_scanread" = "PORT_UNUSED"
+    Info: Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info: Parameter "port_clk0" = "PORT_USED"
+    Info: Parameter "port_clk1" = "PORT_UNUSED"
+    Info: Parameter "port_clk2" = "PORT_UNUSED"
+    Info: Parameter "port_clk3" = "PORT_UNUSED"
+    Info: Parameter "port_clk4" = "PORT_UNUSED"
+    Info: Parameter "port_clk5" = "PORT_UNUSED"
+    Info: Parameter "port_clkena0" = "PORT_UNUSED"
+    Info: Parameter "port_clkena1" = "PORT_UNUSED"
+    Info: Parameter "port_clkena2" = "PORT_UNUSED"
+    Info: Parameter "port_clkena3" = "PORT_UNUSED"
+    Info: Parameter "port_clkena4" = "PORT_UNUSED"
+    Info: Parameter "port_clkena5" = "PORT_UNUSED"
+    Info: Parameter "port_extclk0" = "PORT_UNUSED"
+    Info: Parameter "port_extclk1" = "PORT_UNUSED"
+    Info: Parameter "port_extclk2" = "PORT_UNUSED"
+    Info: Parameter "port_extclk3" = "PORT_UNUSED"
+Info: Elaborating entity "RAM_set" for hierarchy "vga_display:vga_d|vga:screen|RAM_set:ram0"
+Info: Elaborating entity "pipepc" for hierarchy "pipepc:prog_cnt"
+Info: Elaborating entity "dffe32" for hierarchy "pipepc:prog_cnt|dffe32:program_counter"
+Info: Elaborating entity "pipeif" for hierarchy "pipeif:if_stage"
+Info: Elaborating entity "mux4x32" for hierarchy "pipeif:if_stage|mux4x32:next_pc"
+Info: Elaborating entity "cla32" for hierarchy "pipeif:if_stage|cla32:pc_plus4"
+Info: Elaborating entity "pipeimem" for hierarchy "pipeif:if_stage|pipeimem:inst_imem"
+Info: Elaborating entity "lpm_rom_irom" for hierarchy "pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom"
+Info: Elaborating entity "altsyncram" for hierarchy "pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "pipelined_instmem.mif"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "64"
+    Info: Parameter "operation_mode" = "ROM"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info: Parameter "widthad_a" = "6"
+    Info: Parameter "width_a" = "32"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_pu81.tdf
+    Info: Found entity 1: altsyncram_pu81
+Info: Elaborating entity "altsyncram_pu81" for hierarchy "pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component|altsyncram_pu81:auto_generated"
+Info: Elaborating entity "pipeir" for hierarchy "pipeir:inst_reg"
+Info: Elaborating entity "pipeid" for hierarchy "pipeid:id_stage"
+Info: Elaborating entity "pipeidcu" for hierarchy "pipeid:id_stage|pipeidcu:cu"
+Info: Elaborating entity "regfile" for hierarchy "pipeid:id_stage|regfile:rf"
+Warning (10240): Verilog HDL Always Construct warning at regfile.v(12): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Info: Elaborating entity "mux2x5" for hierarchy "pipeid:id_stage|mux2x5:des_reg_no"
+Info: Elaborating entity "pipedereg" for hierarchy "pipedereg:de_reg"
+Info: Elaborating entity "pipeexe" for hierarchy "pipeexe:exe_stage"
+Info: Elaborating entity "mux2x32" for hierarchy "pipeexe:exe_stage|mux2x32:alu_ina"
+Info: Elaborating entity "alu" for hierarchy "pipeexe:exe_stage|alu:al_unit"
+Info: Elaborating entity "pipeemreg" for hierarchy "pipeemreg:em_reg"
+Info: Elaborating entity "pipemem" for hierarchy "pipemem:mem_stage"
+Info: Elaborating entity "lpm_ram_dq_dram" for hierarchy "pipemem:mem_stage|lpm_ram_dq_dram:dram"
+Info: Elaborating entity "altsyncram" for hierarchy "pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component"
+Info: Elaborated megafunction instantiation "pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component"
+Info: Instantiated megafunction "pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component" with the following parameter:
+    Info: Parameter "clock_enable_input_a" = "BYPASS"
+    Info: Parameter "clock_enable_output_a" = "BYPASS"
+    Info: Parameter "init_file" = "pipelined_datamem.mif"
+    Info: Parameter "intended_device_family" = "Cyclone II"
+    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info: Parameter "lpm_type" = "altsyncram"
+    Info: Parameter "numwords_a" = "32"
+    Info: Parameter "operation_mode" = "SINGLE_PORT"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info: Parameter "power_up_uninitialized" = "FALSE"
+    Info: Parameter "widthad_a" = "5"
+    Info: Parameter "width_a" = "32"
+    Info: Parameter "width_byteena_a" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_i0e1.tdf
+    Info: Found entity 1: altsyncram_i0e1
+Info: Elaborating entity "altsyncram_i0e1" for hierarchy "pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component|altsyncram_i0e1:auto_generated"
+Info: Elaborating entity "io_output_reg" for hierarchy "pipemem:mem_stage|io_output_reg:io_output_regx2"
+Info: Elaborating entity "io_input_reg" for hierarchy "pipemem:mem_stage|io_input_reg:io_input_regx2"
+Info: Elaborating entity "io_input_mux" for hierarchy "pipemem:mem_stage|io_input_reg:io_input_regx2|io_input_mux:io_imput_mux2x32"
+Info: Elaborating entity "pipemwreg" for hierarchy "pipemwreg:mw_reg"
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipeexe:exe_stage|alu:al_unit|Div0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "pipeexe:exe_stage|alu:al_unit|Mult0"
+Info: Elaborated megafunction instantiation "pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0"
+Info: Instantiated megafunction "pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "8"
+    Info: Parameter "LPM_WIDTHD" = "8"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_5dm.tdf
+    Info: Found entity 1: lpm_divide_5dm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info: Found entity 1: sign_div_unsign_fkh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_00f.tdf
+    Info: Found entity 1: alt_u_div_00f
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info: Found entity 1: add_sub_lkc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info: Found entity 1: add_sub_mkc
+Info: Elaborated megafunction instantiation "pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0"
+Info: Instantiated megafunction "pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "32"
+    Info: Parameter "LPM_WIDTHB" = "32"
+    Info: Parameter "LPM_WIDTHP" = "64"
+    Info: Parameter "LPM_WIDTHR" = "64"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "5"
+    Info: Parameter "DEDICATED_MULTIPLIER_CIRCUITRY" = "AUTO"
+Info: Found 1 design units, including 1 entities, in source file db/mult_9v01.tdf
+    Info: Found entity 1: mult_9v01
+Warning: Synthesized away the following node(s):
+    Warning: Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_mult7"
+        Warning (14320): Synthesized away node "pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_out8"
+Info: Ignored 84 buffer(s)
+    Info: Ignored 84 SOFT buffer(s)
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seven[15]" is stuck at GND
+    Warning (13410): Pin "seven[21]" is stuck at VCC
+    Warning (13410): Pin "seven[22]" is stuck at VCC
+    Warning (13410): Pin "seven[23]" is stuck at VCC
+    Warning (13410): Pin "seven[24]" is stuck at VCC
+    Warning (13410): Pin "seven[25]" is stuck at VCC
+    Warning (13410): Pin "seven[26]" is stuck at VCC
+    Warning (13410): Pin "seven[27]" is stuck at VCC
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND
+Info: Implemented 4935 device resources after synthesis - the final resource count might be different
+    Info: Implemented 20 input pins
+    Info: Implemented 91 output pins
+    Info: Implemented 4753 logic cells
+    Info: Implemented 64 RAM segments
+    Info: Implemented 1 ClockLock PLLs
+    Info: Implemented 6 DSP elements
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 251 megabytes
+    Info: Processing ended: Tue May 23 21:42:01 2017
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:30
+
+

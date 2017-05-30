@@ -1,0 +1,197 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.0 Build 132 02/25/2009 SJ Full Version
+# Date created = 14:15:36  May 23, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		pipelined_computer_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY pipelined_computer
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:15:36  MAY 23, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.0
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_G26 -to btn
+set_location_assignment PIN_N2 -to clock
+set_location_assignment PIN_N25 -to sw[0]
+set_location_assignment PIN_N26 -to sw[1]
+set_location_assignment PIN_P25 -to sw[2]
+set_location_assignment PIN_AE14 -to sw[3]
+set_location_assignment PIN_AF14 -to sw[4]
+set_location_assignment PIN_AD13 -to sw[5]
+set_location_assignment PIN_AC13 -to sw[6]
+set_location_assignment PIN_C13 -to sw[7]
+set_location_assignment PIN_B13 -to sw[8]
+set_location_assignment PIN_A13 -to sw[9]
+set_location_assignment PIN_N1 -to sw[10]
+set_location_assignment PIN_P1 -to sw[11]
+set_location_assignment PIN_P2 -to sw[12]
+set_location_assignment PIN_T7 -to sw[13]
+set_location_assignment PIN_U3 -to sw[14]
+set_location_assignment PIN_U4 -to sw[15]
+set_location_assignment PIN_V1 -to sw[16]
+set_location_assignment PIN_V2 -to sw[17]
+set_location_assignment PIN_AF10 -to seven[0]
+set_location_assignment PIN_AB12 -to seven[1]
+set_location_assignment PIN_AC12 -to seven[2]
+set_location_assignment PIN_AD11 -to seven[3]
+set_location_assignment PIN_AE11 -to seven[4]
+set_location_assignment PIN_V14 -to seven[5]
+set_location_assignment PIN_V13 -to seven[6]
+set_location_assignment PIN_V20 -to seven[7]
+set_location_assignment PIN_V21 -to seven[8]
+set_location_assignment PIN_W21 -to seven[9]
+set_location_assignment PIN_Y22 -to seven[10]
+set_location_assignment PIN_AA24 -to seven[11]
+set_location_assignment PIN_AA23 -to seven[12]
+set_location_assignment PIN_AB24 -to seven[13]
+set_location_assignment PIN_AB23 -to seven[14]
+set_location_assignment PIN_V22 -to seven[15]
+set_location_assignment PIN_AC25 -to seven[16]
+set_location_assignment PIN_AC26 -to seven[17]
+set_location_assignment PIN_AB26 -to seven[18]
+set_location_assignment PIN_AB25 -to seven[19]
+set_location_assignment PIN_Y24 -to seven[20]
+set_location_assignment PIN_Y23 -to seven[21]
+set_location_assignment PIN_AA25 -to seven[22]
+set_location_assignment PIN_AA26 -to seven[23]
+set_location_assignment PIN_Y26 -to seven[24]
+set_location_assignment PIN_Y25 -to seven[25]
+set_location_assignment PIN_U22 -to seven[26]
+set_location_assignment PIN_W24 -to seven[27]
+set_location_assignment PIN_U9 -to seven[28]
+set_location_assignment PIN_U1 -to seven[29]
+set_location_assignment PIN_U2 -to seven[30]
+set_location_assignment PIN_T4 -to seven[31]
+set_location_assignment PIN_R7 -to seven[32]
+set_location_assignment PIN_R6 -to seven[33]
+set_location_assignment PIN_T3 -to seven[34]
+set_location_assignment PIN_T2 -to seven[35]
+set_location_assignment PIN_P6 -to seven[36]
+set_location_assignment PIN_P7 -to seven[37]
+set_location_assignment PIN_T9 -to seven[38]
+set_location_assignment PIN_R5 -to seven[39]
+set_location_assignment PIN_R4 -to seven[40]
+set_location_assignment PIN_R3 -to seven[41]
+set_location_assignment PIN_R2 -to seven[42]
+set_location_assignment PIN_P4 -to seven[43]
+set_location_assignment PIN_P3 -to seven[44]
+set_location_assignment PIN_M2 -to seven[45]
+set_location_assignment PIN_M3 -to seven[46]
+set_location_assignment PIN_M5 -to seven[47]
+set_location_assignment PIN_M4 -to seven[48]
+set_location_assignment PIN_L3 -to seven[49]
+set_location_assignment PIN_L2 -to seven[50]
+set_location_assignment PIN_L9 -to seven[51]
+set_location_assignment PIN_L6 -to seven[52]
+set_location_assignment PIN_L7 -to seven[53]
+set_location_assignment PIN_P9 -to seven[54]
+set_location_assignment PIN_N9 -to seven[55]
+set_global_assignment -name MISC_FILE "F:/FPGA LAB resources/Quartus Projects/new_pipelined_computer/pipelined_computer.dpf"
+set_location_assignment PIN_D6 -to VGA_BLANK_N
+set_location_assignment PIN_B7 -to VGA_SYNC_N
+set_location_assignment PIN_B8 -to clk_vga
+set_location_assignment PIN_A7 -to hsync
+set_location_assignment PIN_D8 -to vsync
+set_location_assignment PIN_C8 -to vga_r[0]
+set_location_assignment PIN_F10 -to vga_r[1]
+set_location_assignment PIN_G10 -to vga_r[2]
+set_location_assignment PIN_D9 -to vga_r[3]
+set_location_assignment PIN_C9 -to vga_r[4]
+set_location_assignment PIN_A8 -to vga_r[5]
+set_location_assignment PIN_H11 -to vga_r[6]
+set_location_assignment PIN_H12 -to vga_r[7]
+set_location_assignment PIN_F11 -to vga_r[8]
+set_location_assignment PIN_E10 -to vga_r[9]
+set_location_assignment PIN_B9 -to vga_g[0]
+set_location_assignment PIN_A9 -to vga_g[1]
+set_location_assignment PIN_C10 -to vga_g[2]
+set_location_assignment PIN_D10 -to vga_g[3]
+set_location_assignment PIN_B10 -to vga_g[4]
+set_location_assignment PIN_A10 -to vga_g[5]
+set_location_assignment PIN_G11 -to vga_g[6]
+set_location_assignment PIN_D11 -to vga_g[7]
+set_location_assignment PIN_E12 -to vga_g[8]
+set_location_assignment PIN_D12 -to vga_g[9]
+set_location_assignment PIN_J13 -to vga_b[0]
+set_location_assignment PIN_J14 -to vga_b[1]
+set_location_assignment PIN_F12 -to vga_b[2]
+set_location_assignment PIN_G12 -to vga_b[3]
+set_location_assignment PIN_J10 -to vga_b[4]
+set_location_assignment PIN_J11 -to vga_b[5]
+set_location_assignment PIN_C11 -to vga_b[6]
+set_location_assignment PIN_B11 -to vga_b[7]
+set_location_assignment PIN_C12 -to vga_b[8]
+set_location_assignment PIN_B12 -to vga_b[9]
+set_global_assignment -name VERILOG_FILE source/RAM_set.v
+set_global_assignment -name VERILOG_FILE source/alu.v
+set_global_assignment -name VERILOG_FILE source/BCD.v
+set_global_assignment -name VERILOG_FILE source/cla32.v
+set_global_assignment -name VERILOG_FILE source/diffe32.v
+set_global_assignment -name VERILOG_FILE source/digit.v
+set_global_assignment -name VERILOG_FILE source/io_input_mux.v
+set_global_assignment -name VERILOG_FILE source/io_input_reg.v
+set_global_assignment -name VERILOG_FILE source/io_output_reg.v
+set_global_assignment -name VERILOG_FILE source/lpm_ram_dq_dram.v
+set_global_assignment -name VERILOG_FILE source/lpm_rom_irom.v
+set_global_assignment -name VERILOG_FILE source/mux2x5.v
+set_global_assignment -name VERILOG_FILE source/mux2x32.v
+set_global_assignment -name VERILOG_FILE source/mux4x32.v
+set_global_assignment -name VERILOG_FILE source/pipedereg.v
+set_global_assignment -name VERILOG_FILE source/pipeemreg.v
+set_global_assignment -name VERILOG_FILE source/pipeexe.v
+set_global_assignment -name VERILOG_FILE source/pipeid.v
+set_global_assignment -name VERILOG_FILE source/pipeidcu.v
+set_global_assignment -name VERILOG_FILE source/pipeif.v
+set_global_assignment -name VERILOG_FILE source/pipeimem.v
+set_global_assignment -name VERILOG_FILE source/pipeir.v
+set_global_assignment -name VERILOG_FILE source/pipelined_computer.v
+set_global_assignment -name VERILOG_FILE source/pipemem.v
+set_global_assignment -name VERILOG_FILE source/pipemwreg.v
+set_global_assignment -name VERILOG_FILE source/pll.v
+set_global_assignment -name VERILOG_FILE source/pll_105.v
+set_global_assignment -name VERILOG_FILE source/pipepc.v
+set_global_assignment -name VERILOG_FILE source/regfile.v
+set_global_assignment -name VERILOG_FILE source/seven_segments.v
+set_global_assignment -name VERILOG_FILE source/vga.v
+set_global_assignment -name VERILOG_FILE source/vga_display.v

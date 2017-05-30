@@ -1,0 +1,5 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_out6,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0|mult_9v01:auto_generated|mac_mult5,

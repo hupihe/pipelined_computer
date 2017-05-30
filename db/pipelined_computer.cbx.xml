@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="pipelined_computer">
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_5dm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined_computer|pipeexe:exe_stage|alu:al_unit|lpm_mult:Mult0" CBX_FILE_NAME="mult_9v01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined_computer|pipeif:if_stage|pipeimem:inst_imem|lpm_rom_irom:irom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_pu81.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|pipelined_computer|pipemem:mem_stage|lpm_ram_dq_dram:dram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_i0e1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
